@@ -50,12 +50,13 @@ def print_report(report):
 
 
 # Test
-image_path = "samples/image.jpg"
+if __name__ == "__main__":
+    image_path = "samples/image.jpg"
 
-try:
-    result = analyze_image(image_path)
-    print_report(result)
-except FileNotFoundError:
-    print("Error: Image file not found.")
-except Exception as e:
-    print("Error:", e)
+    try:
+        result = analyze_image(image_path)
+        print_report(result)
+    except FileNotFoundError:
+        print("Error: Image file not found.")
+    except Exception as e:
+        print("Error:", e)

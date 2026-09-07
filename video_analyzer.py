@@ -104,18 +104,19 @@ def print_report(report):
         print("No metadata found.")
 
 
-video_path = "samples/video.mp4"
+if __name__ == "__main__":
+    video_path = "samples/video.mp4"
 
-try:
-    result = analyze_video(video_path)
-    print_report(result)
+    try:
+        result = analyze_video(video_path)
+        print_report(result)
 
-except FileNotFoundError:
-    print("Error: Video file not found.")
+    except FileNotFoundError:
+        print("Error: Video file not found.")
 
-except ffmpeg.Error as e:
-    print("Error while analyzing video:")
-    print(e.stderr.decode() if e.stderr else "Unknown FFmpeg error.")
+    except ffmpeg.Error as e:
+        print("Error while analyzing video:")
+        print(e.stderr.decode() if e.stderr else "Unknown FFmpeg error.")
 
-except Exception as e:
-    print("Error:", e)
+    except Exception as e:
+        print("Error:", e)

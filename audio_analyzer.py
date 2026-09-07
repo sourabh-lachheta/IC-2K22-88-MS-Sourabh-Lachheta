@@ -51,12 +51,13 @@ def print_report(report):
         print("No metadata found.")
 
 
-audio_path = "samples/song.mpeg"
+if __name__ == "__main__":
+    audio_path = "samples/song.mp3"
 
-try:
-    result = analyze_audio(audio_path)
-    print_report(result)
-except FileNotFoundError:
-    print("Error: Audio file not found.")
-except Exception as e:
-    print("Error:", e)
+    try:
+        result = analyze_audio(audio_path)
+        print_report(result)
+    except FileNotFoundError:
+        print("Error: Audio file not found.")
+    except Exception as e:
+        print("Error:", e)
